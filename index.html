@@ -1,1 +1,1184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- ✅ Metadatos básicos -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Quinta Don Elisario · Privacidad, naturaleza y confort</title>
+  <meta name="description" content="Quinta Don Elisario es una cabaña alpina privada en San Miguel del Monte. Privacidad, naturaleza y confort a sólo 110 km de Buenos Aires. Pileta, parrilla y todas las comodidades para descansar de verdad.">
+
+  <!-- 🎨 Tipografías -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-body: #f5f2ec;
+      --bg-card: #ffffff;
+      --text-main: #111111;
+      --text-muted: #6b6b6b;
+      --accent: #b18a5c;         /* dorado cálido */
+      --accent-soft: #e9ddcf;    /* beige */
+      --border-soft: #e0d6c7;
+      --shadow-soft: 0 16px 40px rgba(15, 23, 42, 0.17);
+      --radius-lg: 18px;
+      --radius-full: 999px;
+      --max-width: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: radial-gradient(circle at top, #fbf7f0 0, #f1ece4 40%, #e6dfd3 100%);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* 🔝 Layout general */
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .wrap {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* 🧭 Header */
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 40;
+      backdrop-filter: blur(18px);
+      background: rgba(250, 247, 241, 0.94);
+      border-bottom: 1px solid rgba(210, 198, 181, 0.4);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.9rem 1.5rem;
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+    }
+
+    .logo-circle {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: #fff;
+      border: 1px solid var(--border-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .logo-circle img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .brand-text-main {
+      font-family: "Playfair Display", serif;
+      font-size: 0.98rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .brand-text-sub {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .nav-links {
+      display: none;
+      align-items: center;
+      gap: 1.2rem;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -3px;
+      width: 0;
+      height: 1px;
+      background: var(--accent);
+      transition: width 0.25s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      display: none;
+    }
+
+    /* ☎️ Botón principal */
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.6rem 1.3rem;
+      border-radius: var(--radius-full);
+      border: none;
+      background: radial-gradient(circle at 10% 0, #c9a16d 0, var(--accent) 40%, #9d7a4d 100%);
+      color: #fff;
+      font-size: 0.88rem;
+      font-weight: 500;
+      cursor: pointer;
+      box-shadow: 0 12px 30px rgba(92, 72, 42, 0.35);
+      transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
+      white-space: nowrap;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 16px 40px rgba(92, 72, 42, 0.45);
+      filter: brightness(1.03);
+    }
+
+    .btn-primary span {
+      font-size: 1rem;
+      margin-right: 0.4rem;
+    }
+
+    /* 🌄 Hero */
+
+    .hero {
+      padding-top: 80px; /* para no quedar debajo del header */
+      min-height: 100vh;
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      padding: 2.5rem 0 3.5rem;
+    }
+
+    .hero-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 1.4rem;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.25rem 0.85rem;
+      border-radius: var(--radius-full);
+      background: rgba(255, 255, 255, 0.85);
+      border: 1px solid rgba(193, 170, 137, 0.5);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      backdrop-filter: blur(10px);
+      gap: 0.6rem;
+      align-self: flex-start;
+    }
+
+    .hero-badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #30b27a;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.8rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .hero-title {
+      font-family: "Playfair Display", serif;
+      font-size: 2.1rem;
+      line-height: 1.15;
+    }
+
+    .hero-title span {
+      color: var(--accent);
+    }
+
+    .hero-subtitle {
+      font-size: 0.96rem;
+      color: var(--text-muted);
+      max-width: 32rem;
+    }
+
+    .hero-highlight {
+      font-weight: 500;
+      color: #3f3a32;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      align-items: center;
+      margin-top: 0.4rem;
+    }
+
+    .btn-ghost {
+      padding: 0.6rem 1.1rem;
+      border-radius: var(--radius-full);
+      border: 1px solid rgba(156, 132, 98, 0.55);
+      background: rgba(255,255,255,0.9);
+      font-size: 0.85rem;
+      color: #5c4f3a;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-ghost svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    .hero-meta {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 0.7rem;
+    }
+
+    .hero-meta strong {
+      color: #3b352a;
+    }
+
+    .hero-media {
+      position: relative;
+      min-height: 260px;
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+      background: #151515;
+      isolation: isolate;
+    }
+
+    .hero-media::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: url("hero-don-elisario.jpg"); /* TODO: reemplazar por foto real del hero */
+      background-size: cover;
+      background-position: center;
+      filter: saturate(1.05) contrast(1.05);
+      transform: scale(1.02);
+    }
+
+    .hero-media-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(0,0,0,0.55), rgba(0,0,0,0.28));
+      mix-blend-mode: multiply;
+    }
+
+    .hero-media-inner {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      padding: 1.6rem 1.6rem 1.2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      color: #fff;
+    }
+
+    .hero-media-tag {
+      display: inline-flex;
+      padding: 0.3rem 0.9rem;
+      border-radius: var(--radius-full);
+      border: 1px solid rgba(250, 248, 242, 0.7);
+      font-size: 0.75rem;
+      backdrop-filter: blur(12px);
+      background: rgba(9, 9, 9, 0.26);
+    }
+
+    .hero-media-bottom {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      align-items: flex-end;
+      justify-content: space-between;
+    }
+
+    .hero-media-card {
+      background: rgba(14, 13, 11, 0.85);
+      border-radius: 1rem;
+      padding: 0.9rem 1rem;
+      min-width: 180px;
+      border: 1px solid rgba(250, 248, 244, 0.14);
+    }
+
+    .hero-media-card-title {
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #e2d8c9;
+      margin-bottom: 0.25rem;
+    }
+
+    .hero-media-card-main {
+      font-size: 0.92rem;
+      font-weight: 500;
+    }
+
+    .hero-media-pill {
+      font-size: 0.72rem;
+      padding: 0.4rem 0.9rem;
+      border-radius: var(--radius-full);
+      background: rgba(244, 237, 226, 0.16);
+      border: 1px solid rgba(244, 237, 226, 0.3);
+      backdrop-filter: blur(10px);
+    }
+
+    /* 📦 Secciones genéricas */
+
+    section {
+      padding: 3.2rem 0;
+    }
+
+    .section-heading {
+      margin-bottom: 2rem;
+      text-align: left;
+    }
+
+    .eyebrow {
+      font-size: 0.78rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.6rem;
+    }
+
+    .section-title {
+      font-family: "Playfair Display", serif;
+      font-size: 1.7rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .section-subtitle {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      max-width: 32rem;
+    }
+
+    /* 🤍 Experiencia */
+
+    .exp-grid {
+      display: grid;
+      grid-template-columns: 1.2fr;
+      gap: 1.7rem;
+    }
+
+    .exp-text p {
+      font-size: 0.95rem;
+      color: #3c352b;
+      margin-bottom: 1rem;
+    }
+
+    .exp-highlights {
+      display: grid;
+      grid-template-columns: minmax(0,1fr);
+      gap: 0.9rem;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--border-soft);
+      background: rgba(255, 255, 255, 0.9);
+      padding: 0.4rem 0.9rem;
+      font-size: 0.8rem;
+      color: #4e4334;
+    }
+
+    .chip span {
+      font-size: 1.05rem;
+    }
+
+    .exp-card {
+      border-radius: var(--radius-lg);
+      background: var(--bg-card);
+      border: 1px solid var(--border-soft);
+      padding: 1.1rem 1.1rem 1rem;
+      display: grid;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+    }
+
+    .exp-card-title {
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .exp-card-list {
+      padding-left: 1rem;
+      color: var(--text-muted);
+    }
+
+    .exp-card-list li {
+      margin-bottom: 0.25rem;
+    }
+
+    /* 🛏 Comodidades */
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: minmax(0,1fr);
+      gap: 1rem;
+    }
+
+    .feature-card {
+      background: rgba(255,255,255,0.96);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-soft);
+      padding: 1.1rem 1.1rem 1rem;
+      display: grid;
+      gap: 0.35rem;
+      font-size: 0.86rem;
+    }
+
+    .feature-tag {
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .feature-title {
+      font-weight: 600;
+      margin-top: 0.1rem;
+    }
+
+    .feature-meta {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* 🖼 Galería */
+
+    .gallery {
+      border-radius: 24px;
+      background: radial-gradient(circle at top left, #fdf8f0 0, #f2e8db 40%, #e7ddcf 100%);
+      padding: 1.4rem 1.2rem 1.4rem;
+      border: 1px solid rgba(216, 200, 177, 0.7);
+    }
+
+    .gallery-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .gallery-title {
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2,minmax(0,1fr));
+      gap: 0.4rem;
+    }
+
+    .gallery-item {
+      border-radius: 14px;
+      overflow: hidden;
+      position: relative;
+      min-height: 90px;
+      background: #ddd;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .gallery-note {
+      margin-top: 0.6rem;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* 📍 Ubicación */
+
+    .map-card {
+      border-radius: var(--radius-lg);
+      background: var(--bg-card);
+      border: 1px solid var(--border-soft);
+      overflow: hidden;
+    }
+
+    .map-card iframe {
+      width: 100%;
+      height: 260px;
+      border: 0;
+      display: block;
+    }
+
+    .map-text {
+      padding: 0.9rem 1rem 1.1rem;
+      font-size: 0.86rem;
+      color: var(--text-muted);
+    }
+
+    .map-text strong {
+      color: #3b342b;
+    }
+
+    /* 🐾 Mascotas / Testimonios */
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 0.8rem;
+      font-size: 0.8rem;
+    }
+
+    .pill {
+      padding: 0.4rem 0.9rem;
+      border-radius: var(--radius-full);
+      background: rgba(255,255,255,0.9);
+      border: 1px solid var(--border-soft);
+    }
+
+    .testimonials {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .testimonial-card {
+      border-radius: var(--radius-lg);
+      background: var(--bg-card);
+      border: 1px solid var(--border-soft);
+      padding: 1rem 1.1rem;
+      font-size: 0.86rem;
+    }
+
+    .testimonial-stars {
+      color: #e1b055;
+      font-size: 0.9rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .testimonial-author {
+      margin-top: 0.4rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* 📞 Contacto & footer */
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0,1.4fr);
+      gap: 1.6rem;
+      align-items: center;
+    }
+
+    .contact-card {
+      border-radius: var(--radius-lg);
+      background: #15120e;
+      color: #f7f2e9;
+      padding: 1.4rem 1.4rem 1.3rem;
+      box-shadow: var(--shadow-soft);
+      display: grid;
+      gap: 0.9rem;
+    }
+
+    .contact-card-title {
+      font-family: "Playfair Display", serif;
+      font-size: 1.25rem;
+    }
+
+    .contact-card p {
+      font-size: 0.88rem;
+      color: #e2d6c4;
+    }
+
+    .contact-info {
+      font-size: 0.8rem;
+      color: #e5ddcf;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      margin-top: 0.5rem;
+    }
+
+    .btn-outline-light {
+      padding: 0.55rem 1rem;
+      border-radius: var(--radius-full);
+      border: 1px solid rgba(239, 230, 215, 0.8);
+      font-size: 0.8rem;
+      background: transparent;
+      color: #f5edde;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    footer {
+      padding: 1.6rem 0 2rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      align-items: flex-start;
+    }
+
+    /* 🟢 Botón flotante WhatsApp */
+
+    .whatsapp-float {
+      position: fixed;
+      right: 1.2rem;
+      bottom: 1.2rem;
+      z-index: 50;
+    }
+
+    .whatsapp-float a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: #25d366;
+      color: #fff;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.35);
+      font-size: 1.6rem;
+    }
+
+    /* 📱 Responsive */
+
+    @media (min-width: 720px) {
+      .nav-links {
+        display: flex;
+      }
+
+      .nav-cta {
+        display: block;
+      }
+
+      .hero-inner {
+        grid-template-columns: minmax(0,1.15fr) minmax(0,1.1fr);
+        align-items: center;
+        gap: 2.4rem;
+      }
+
+      .hero-title {
+        font-size: 2.6rem;
+      }
+
+      .exp-grid {
+        grid-template-columns: minmax(0,1.25fr) minmax(0,1.1fr);
+        align-items: flex-start;
+      }
+
+      .exp-highlights {
+        grid-template-columns: repeat(2,minmax(0,1fr));
+      }
+
+      .features-grid {
+        grid-template-columns: repeat(2,minmax(0,1fr));
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(4,minmax(0,1fr));
+      }
+
+      .map-card iframe {
+        height: 310px;
+      }
+
+      .contact-grid {
+        grid-template-columns: minmax(0,1.2fr) minmax(0,0.9fr);
+      }
+
+      .footer-inner {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .hero {
+        padding-top: 90px;
+      }
+
+      .hero-inner {
+        padding-top: 3.2rem;
+        padding-bottom: 4rem;
+      }
+
+      .hero-media {
+        min-height: 320px;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- 🧭 HEADER -->
+  <header>
+    <nav class="nav">
+      <div class="nav-left">
+        <div class="logo-circle">
+          <!-- TODO: reemplazar src por el logo en alta -->
+          <img src="logo-don-elisario.png" alt="Quinta Don Elisario - Turismo Rural Monte">
+        </div>
+        <div class="brand-text">
+          <div class="brand-text-main">Quinta Don Elisario</div>
+          <div class="brand-text-sub">Turismo rural · San Miguel del Monte</div>
+        </div>
+      </div>
+
+      <div class="nav-links">
+        <a href="#experiencia">Experiencia</a>
+        <a href="#comodidades">Comodidades</a>
+        <a href="#galeria">Galería</a>
+        <a href="#ubicacion">Ubicación</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+
+      <div class="nav-cta">
+        <!-- TODO: reemplazar por número real de WhatsApp -->
+        <a href="https://wa.me/5492228540000?text=Hola%20Quisiera%20reservar%20en%20Quinta%20Don%20Elisario"
+           class="btn-primary">
+          <span>✉</span> Reservar por WhatsApp
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- 🌄 HERO -->
+  <main>
+    <section class="hero">
+      <div class="wrap hero-inner">
+        <div class="hero-text">
+          <div class="hero-badge">
+            <div class="hero-badge-dot"></div>
+            Escapada privada · A 110 km de Buenos Aires
+          </div>
+
+          <div class="hero-eyebrow">Cabaña alpina · Turismo rural</div>
+
+          <h1 class="hero-title">
+            Privacidad, naturaleza <span>y confort</span>.
+          </h1>
+
+          <p class="hero-subtitle">
+            Una cabaña alpina privada en <span class="hero-highlight">San Miguel del Monte</span>,
+            rodeada de arboleda y con todas las comodidades modernas:
+            pileta, parrilla, WIFI, aire frío/calor y espacio para relajarte de verdad.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn-primary"
+               href="https://wa.me/5492228540000?text=Hola%20Quisiera%20consultar%20por%20fechas%20disponibles%20en%20Quinta%20Don%20Elisario">
+              <span>💬</span> Reservar por WhatsApp
+            </a>
+
+            <a class="btn-ghost" href="#galeria">
+              Ver galería
+              <svg viewBox="0 0 20 20" aria-hidden="true">
+                <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.4"
+                      d="M4 10h11m0 0L11 5m4 5-4 5"/>
+              </svg>
+            </a>
+          </div>
+
+          <div class="hero-meta">
+            Capacidad hasta <strong>6 huéspedes</strong> · Mascotas bienvenidas ·
+            Temporada alta de <strong>noviembre a marzo</strong>
+          </div>
+        </div>
+
+        <div class="hero-media">
+          <div class="hero-media-overlay"></div>
+          <div class="hero-media-inner">
+            <div class="hero-media-tag">
+              Refugio privado rodeado de naturaleza
+            </div>
+
+            <div class="hero-media-bottom">
+              <div class="hero-media-card">
+                <div class="hero-media-card-title">Cabaña alpina exclusiva</div>
+                <div class="hero-media-card-main">
+                  Pileta privada, parque arbolado y parrilla sólo para vos.
+                </div>
+              </div>
+
+              <div class="hero-media-pill">
+                A 110 km de CABA · Acceso por autopista y camino rural corto
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 🤍 EXPERIENCIA -->
+    <section id="experiencia">
+      <div class="wrap">
+        <div class="section-heading">
+          <div class="eyebrow">Experiencia</div>
+          <h2 class="section-title">Un refugio para bajar un cambio.</h2>
+          <p class="section-subtitle">
+            Don Elisario está pensado para quienes buscan silencio, espacio y naturaleza, sin resignar confort:
+            es tu escapada boutique, cerca pero diferente.
+          </p>
+        </div>
+
+        <div class="exp-grid">
+          <div class="exp-text">
+            <p>
+              Desde que dejás la autopista y tomás el camino rural, el paisaje empieza a bajar la velocidad por vos.
+              Llegás a una quinta rodeada de arboleda, sin vecinos pegados, donde la pileta, la parrilla y el
+              parque son sólo tuyos.
+            </p>
+            <p>
+              La cabaña alpina combina líneas simples, madera y luz natural para crear un ambiente cálido y
+              descontracturado. Es el lugar ideal para venir en pareja, en familia o con amigos y sentir que
+              el tiempo corre distinto.
+            </p>
+
+            <div class="exp-highlights">
+              <div class="chip">
+                <span>🏊‍♀️</span> Pileta y parque privados
+              </div>
+              <div class="chip">
+                <span>🔥</span> Parrilla y galería para asados
+              </div>
+              <div class="chip">
+                <span>🌲</span> Arboleda y entorno rural
+              </div>
+              <div class="chip">
+                <span>📡</span> WIFI y Smart TV
+              </div>
+            </div>
+          </div>
+
+          <div class="exp-card">
+            <div class="exp-card-title">Capacidad & distribución</div>
+            <ul class="exp-card-list">
+              <li>Hasta 6 huéspedes.</li>
+              <li>Dos camas de dos plazas y dos camas de una plaza.</li>
+              <li>Ambientes cómodos y funcionales, pensados para descansar.</li>
+            </ul>
+
+            <div class="exp-card-title" style="margin-top:0.7rem;">Tu estadía, a tu ritmo</div>
+            <ul class="exp-card-list">
+              <li>Check-in y atención con trato personalizado.</li>
+              <li>Privacidad real: espacio para vos, tu familia, amigos y mascotas.</li>
+              <li>Ideal para escapadas de fin de semana o estadías extendidas.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 🛏 COMODIDADES -->
+    <section id="comodidades">
+      <div class="wrap">
+        <div class="section-heading">
+          <div class="eyebrow">Comodidades</div>
+          <h2 class="section-title">Todo lo que necesitás para descansar en serio.</h2>
+          <p class="section-subtitle">
+            Naturaleza y silencio por fuera, confort completo por dentro. La idea es simple:
+            que no tengas que preocuparte por nada.
+          </p>
+        </div>
+
+        <div class="features-grid">
+          <article class="feature-card">
+            <div class="feature-tag">Interior</div>
+            <h3 class="feature-title">Confort moderno</h3>
+            <p class="feature-meta">
+              Aire acondicionado frío/calor, Smart TV, WIFI, cocina equipada y ropa de cama incluida.
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-tag">Exterior</div>
+            <h3 class="feature-title">Pileta, parque y parrilla</h3>
+            <p class="feature-meta">
+              Pileta privada, parrilla, espacios de sombra y una arboleda que enmarca el entorno rural.
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-tag">Accesos</div>
+            <h3 class="feature-title">Cerca, pero desconectado</h3>
+            <p class="feature-meta">
+              A 110 km de CABA, por autopista y un corto tramo de camino rural. Llegar es fácil, irse es lo difícil.
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-tag">Estacionamiento</div>
+            <h3 class="feature-title">Espacio para tus autos</h3>
+            <p class="feature-meta">
+              Estacionamiento semicubierto para varios vehículos dentro de la propiedad.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 🖼 GALERÍA -->
+    <section id="galeria">
+      <div class="wrap">
+        <div class="section-heading">
+          <div class="eyebrow">Galería</div>
+          <h2 class="section-title">Así se vive Don Elisario.</h2>
+          <p class="section-subtitle">
+            Imaginá una tarde de pileta, mate o copa de vino en la galería, parrilla encendida y la laguna de Monte muy cerca.
+          </p>
+        </div>
+
+        <div class="gallery">
+          <div class="gallery-header">
+            <div class="gallery-title">Selección de fotos</div>
+            <a href="https://www.instagram.com/donelisario/" target="_blank" rel="noopener" class="btn-ghost" style="border-radius:999px;">
+              Ver más en Instagram
+            </a>
+          </div>
+
+          <div class="gallery-grid">
+            <!-- TODO: reemplazar por fotos reales -->
+            <div class="gallery-item">
+              <img src="galeria-1.jpg" alt="Vista de la cabaña alpina y el parque de Quinta Don Elisario">
+            </div>
+            <div class="gallery-item">
+              <img src="galeria-2.jpg" alt="Pileta privada en Quinta Don Elisario">
+            </div>
+            <div class="gallery-item">
+              <img src="galeria-3.jpg" alt="Interior cálido de la cabaña alpina">
+            </div>
+            <div class="gallery-item">
+              <img src="galeria-4.jpg" alt="Atardecer en el parque de la quinta">
+            </div>
+          </div>
+
+          <p class="gallery-note">
+            Fotos ilustrativas. En redes podés ver más imágenes y videos actualizados de la cabaña y su entorno.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 📍 UBICACIÓN -->
+    <section id="ubicacion">
+      <div class="wrap">
+        <div class="section-heading">
+          <div class="eyebrow">Ubicación</div>
+          <h2 class="section-title">San Miguel del Monte, tu escapada cerca de Buenos Aires.</h2>
+          <p class="section-subtitle">
+            Un clásico del turismo rural bonaerense, con laguna, verde y aire de pueblo.
+            Don Elisario se encuentra en zona rural, ideal para quienes buscan tranquilidad real.
+          </p>
+        </div>
+
+        <div class="map-card">
+          <!-- TODO: podés reemplazar el q con la dirección exacta -->
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3281.259418343258!2d-58.812!3d-34.671!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bc5af1a7f7c3e7%3A0x3a6c3a63bbddc271!2sSan%20Miguel%20del%20Monte%2C%20Buenos%20Aires!5e0!3m2!1ses-419!2sar!4v0000000000000"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+
+          <div class="map-text">
+            <strong>Cómo llegar:</strong> acceso principal por autopista desde Buenos Aires y luego un corto tramo de camino rural.
+            La quinta se encuentra en un entorno de campos y arboleda, a pocos minutos de la laguna de Monte.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 🐾 MASCOTAS & TESTIMONIOS -->
+    <section>
+      <div class="wrap">
+        <div class="section-heading">
+          <div class="eyebrow">Mascotas & opiniones</div>
+          <h2 class="section-title">Para vos, tu familia y también tus mascotas.</h2>
+          <p class="section-subtitle">
+            Don Elisario es pet friendly. Además, la experiencia está avalada por las opiniones de quienes ya se quedaron:
+            más de 70 reseñas y un promedio de 4,7 estrellas en Google.
+          </p>
+        </div>
+
+        <div class="pill-row">
+          <div class="pill">🐾 Mascotas bienvenidas</div>
+          <div class="pill">🌿 Entorno rural silencioso</div>
+          <div class="pill">🧺 Espacio para picnic y juegos</div>
+        </div>
+
+        <div class="testimonials" style="margin-top:1.5rem;">
+          <article class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p>
+              “Lugar ideal para desconectar. La cabaña es cómoda, la pileta privada es un plus enorme y el entorno es
+              súper tranquilo. Volveríamos sin dudar.”
+            </p>
+            <div class="testimonial-author">— Reseña destacada de Google</div>
+          </article>
+
+          <article class="testimonial-card">
+            <div class="testimonial-stars">★★★★☆</div>
+            <p>
+              “Muy cerca de Buenos Aires pero con ambiente de campo real. Excelente atención, muy buena predisposición
+              de los dueños y mucha privacidad.”
+            </p>
+            <div class="testimonial-author">— Reseña destacada de Google</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 📞 CONTACTO -->
+    <section id="contacto">
+      <div class="wrap">
+        <div class="section-heading">
+          <div class="eyebrow">Reservas</div>
+          <h2 class="section-title">Hablemos por WhatsApp y organizamos tu estadía.</h2>
+          <p class="section-subtitle">
+            Consultanos por fechas disponibles, temporada alta, estadías especiales y cualquier duda que tengas.
+            Te respondemos de forma personalizada.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-card">
+            <div class="contact-card-title">Tu próxima escapada está cerca.</div>
+            <p>
+              Contanos cuántas personas son, si vienen con mascotas y qué fechas tienen en mente.
+              Coordinamos todo por WhatsApp, simple y directo.
+            </p>
+
+            <div class="contact-links">
+              <a class="btn-primary"
+                 href="https://wa.me/5492228540000?text=Hola%20Quisiera%20reservar%20en%20Quinta%20Don%20Elisario">
+                <span>📲</span> Reservar por WhatsApp
+              </a>
+
+              <a class="btn-outline-light" href="https://www.instagram.com/donelisario/" target="_blank" rel="noopener">
+                Instagram @donelisario
+              </a>
+            </div>
+
+            <div class="contact-info">
+              Temporada alta: noviembre a marzo · San Miguel del Monte, provincia de Buenos Aires.
+            </div>
+          </div>
+
+          <div>
+            <p style="font-size:0.86rem; color:var(--text-muted);">
+              La web acompaña el trabajo que ya venís haciendo en redes sociales. Usala como carta de presentación:
+              compartila en WhatsApp, Instagram y con tus huéspedes para que vean, en un solo lugar,
+              todo lo que ofrece la quinta.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 🧾 FOOTER -->
+  <footer>
+    <div class="wrap">
+      <div class="footer-inner">
+        <div>© <span id="year"></span> Quinta Don Elisario · Turismo rural en San Miguel del Monte.</div>
+        <div>Desarrollo web · Agencia boutique en Argentina.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 🟢 WHATSAPP FLOTANTE -->
+  <div class="whatsapp-float">
+    <a href="https://wa.me/5492228540000?text=Hola%20Quisiera%20consultar%20por%20Quinta%20Don%20Elisario"
+       aria-label="Reservar por WhatsApp">
+      ☎
+    </a>
+  </div>
+</div>
+
+<script>
+  // Año automático en el footer
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
 
